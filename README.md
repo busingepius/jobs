@@ -22,3 +22,6 @@ Let's dive in!!!
 - Finally, since this is a node and express build, ensure to spin it up with initialization and direct installations
 
 #### For more information reach out for all the details
+
+#### For usage
+- Find api documentation when you call [URL/api/v1/docs]
