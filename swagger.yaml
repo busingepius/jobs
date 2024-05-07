@@ -1,0 +1,254 @@
+openapi: 3.0.0
+info:
+  title: Jobs
+  description: >-
+    A simpleJobs  API to test job creation, update, filtering, deletion and many more.
+    
+    
+    Let's dive in!!!
+  contact:
+    name: Gegabox Technologies Limited
+    url: gegabox.ug
+    email: gegaboxtechnologies@gmail.com
+  version: '1.0'
+servers:
+  - url: http://localhost:3000/api/v1
+    variables: {}
+paths:
+  /jobs/login:
+    post:
+      tags:
+        - auth
+      summary: Login
+      description: Login with a valid and registered email and password to complete this step
+      operationId: Login
+      parameters: []
+      requestBody:
+        description: Provide email and valid password
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/LoginRequest'
+                - description: Provide email and valid password
+                  example:
+                    email: businge@gmail.com
+                    password: secret
+            example:
+              email: businge@gmail.com
+              password: secret
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /jobs/register:
+    post:
+      tags:
+        - auth
+      summary: Register
+      description: Registere by providing your user name and email plus a valid password that is strong enough.
+      operationId: Register
+      parameters: []
+      requestBody:
+        description: Provide name, email and valid password
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/RegisterRequest'
+                - description: Provide name, email and valid password
+                  example:
+                    name: businge
+                    email: businge@gmail.com
+                    password: secret
+            example:
+              name: businge
+              email: businge@gmail.com
+              password: secret
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /jobs:
+    get:
+      tags:
+        - jobs
+      summary: Get all jobs
+      description: This returns all jobs in the database regardless of the creator
+      operationId: Getalljobs
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+    post:
+      tags:
+        - jobs
+      summary: Create a job
+      description: A create a new job by passing in the position and the company
+      operationId: Createajob
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/CreateajobRequest'
+                - example:
+                    company: google
+                    position: Software Developer
+            example:
+              company: google
+              position: Software Developer
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /jobs/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    get:
+      tags:
+        - jobs
+      summary: Get single job
+      description: Here provide a valid job id in order to get the single specified job
+      operationId: Getsinglejob
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    patch:
+      tags:
+        - jobs
+      summary: Update a job
+      description: Here provide a valid job id in order to update the job
+      operationId: Updateajob
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/UpdateajobRequest'
+                - example:
+                    position: Flutter Programmer
+                    status: interview
+            example:
+              position: Flutter Programmer
+              status: interview
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    delete:
+      tags:
+        - jobs
+      summary: Delete a job
+      description: Here provide a valid job id in order to delete the job
+      operationId: Deleteajob
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+components:
+  schemas:
+    LoginRequest:
+      title: LoginRequest
+      required:
+        - email
+        - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: businge@gmail.com
+        password: secret
+    RegisterRequest:
+      title: RegisterRequest
+      required:
+        - name
+        - email
+        - password
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        name: businge
+        email: businge@gmail.com
+        password: secret
+    CreateajobRequest:
+      title: CreateajobRequest
+      required:
+        - company
+        - position
+      type: object
+      properties:
+        company:
+          type: string
+        position:
+          type: string
+      example:
+        company: google
+        position: Software Developer
+    UpdateajobRequest:
+      title: UpdateajobRequest
+      required:
+        - position
+        - status
+      type: object
+      properties:
+        position:
+          type: string
+        status:
+          type: string
+      example:
+        position: Flutter Programmer
+        status: interview
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security: []
+tags:
+  - name: auth
+    description: Register as a user and login to start creating, updating, reading and deleting the jobs
+  - name: jobs
+    description: "This is folder compartment holding all the sample tested ways of massaging the data or interacting with the database.\n\n1. Get all jobs\n    \n2. Get a single job\n    \n3. Create a new job\n    \n4. Delete a single job\n    \n5. Update a single job"
