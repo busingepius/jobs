@@ -10,9 +10,9 @@ Let's dive in!!!
 
 #### Images
 - ![image one](https://github.com/busingepius/jobs/blob/main/screenshots/Screenshot_1.png)
-- ![image one](https://github.com/busingepius/jobs/blob/main/screenshots/Screenshot_2.png)
-- ![image one](https://github.com/busingepius/jobs/blob/main/screenshots/Screenshot_3.png)
-- ![image one](https://github.com/busingepius/jobs/blob/main/screenshots/Screenshot_4.png)
+- ![image two](https://github.com/busingepius/jobs/blob/main/screenshots/Screenshot_2.png)
+- ![image three](https://github.com/busingepius/jobs/blob/main/screenshots/Screenshot_3.png)
+- ![image four](https://github.com/busingepius/jobs/blob/main/screenshots/Screenshot_4.png)
 
 
 #### Important information
