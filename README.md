@@ -13,3 +13,12 @@ Let's dive in!!!
 - ![image one](https://github.com/busingepius/jobs/blob/main/screenshots/Screenshot_2.png)
 - ![image one](https://github.com/busingepius/jobs/blob/main/screenshots/Screenshot_3.png)
 - ![image one](https://github.com/busingepius/jobs/blob/main/screenshots/Screenshot_4.png)
+
+
+#### Important information
+- Currently, the mongo database the api uses is locally set up. Therefore to change the details, please add a dotenv file with the right details and update the connection string
+- To improve security, please add helmet, rate limiter, cors and so on.
+- Update the dot env variables accordingly according to your desired port 
+- Finally, since this is a node and express build, ensure to spin it up with initialization and direct installations
+
+#### For more information reach out for all the details
